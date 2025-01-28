@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tarefas</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Lista de Tarefas</h1>
+  <a href="/add">Adicionar Nova Tarefa</a>
+  <ul>
+    <% tasks.forEach(task => { %>
+      <li>
+        <strong><%= task.title %></strong><br>
+        <%= task.description %><br>
+        <a href="/edit/<%= task.id %>">Editar</a> |
+        <form action="/delete/<%= task.id %>" method="POST" style="display:inline;">
+          <button type="submit">Excluir</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
+
